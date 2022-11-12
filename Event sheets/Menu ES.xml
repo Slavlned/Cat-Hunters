@@ -1,0 +1,677 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Menu ES</name>
+    <events>
+        <variable constant="0" name="Skin2Unlocked" sid="363569162398235" static="0" type="text">False</variable>
+        <variable constant="0" name="MenuSkinSave" sid="299831673396800" static="0" type="text">False</variable>
+        <variable constant="0" name="Skinsetmenu" sid="698858786687274" static="0" type="text">False</variable>
+        <variable constant="0" name="Skin1Unlocked" sid="633893123913511" static="0" type="text">False</variable>
+        <event-group description="" sid="952222439996034" title="Fonts2">
+            <sub-events>
+                <event-block sid="715329700852208">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="793759918912098" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set web font" sid="923678547971397" type="FontText">
+                            <param id="0" name="Family name">&quot;rubik_mono_oneregular&quot;</param>
+                            <param id="1" name="CSS URL">&quot;rubikmonoone.css&quot;</param>
+                        </action>
+                        <action id="0" name="Set text" sid="483227758127717" type="ScoreIndicator">
+                            <param id="0" name="Text">&quot;:&quot;&amp;Score</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="877583450191646" title="ButtonsMenu">
+            <sub-events>
+                <event-group description="" sid="776198703261927" title="Startgame">
+                    <sub-events>
+                        <event-block sid="747927499899456">
+                            <conditions>
+                                <condition id="17" name="On tap object" sid="352598354057712" type="Touch">
+                                    <param id="0" name="Object">StartButton</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="234322877052287" type="Function">
+                                    <param id="0" name="Name">&quot;SkinSave&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-9" name="Set value" sid="741393243530899" type="System">
+                                    <param id="0" name="Variable">Skin</param>
+                                    <param id="1" name="Value">WebStorage.LocalValue(&quot;Skin&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="669169092262988" type="System">
+                                    <param id="0" name="Variable">SkinSet</param>
+                                    <param id="1" name="Value">&quot;False&quot;</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="182312256423986" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action id="-21" name="Reset global variables" sid="560533234237226" type="System" />
+                                <action id="-16" name="Wait" sid="304527114330936" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="750258035770518" type="System">
+                                    <param id="0" name="Layout">Game</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="163025402806981" title="Leaders" />
+                <event-group description="" sid="171944420689426" title="Exit2">
+                    <sub-events>
+                        <event-block sid="899177253933289">
+                            <conditions>
+                                <condition id="17" name="On tap object" sid="113553152975008" type="Touch">
+                                    <param id="0" name="Object">MenuExit</param>
+                                </condition>
+                                <condition id="-9" name="Layer is visible" sid="899707194974634" type="System">
+                                    <param id="0" name="Layer">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set time scale" sid="491300342361675" type="System">
+                                    <param id="0" name="Time scale">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="376358206727383" type="Exit">
+                                    <param id="0" name="Animation">&quot;Animation&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="797468531199134" type="System">
+                                    <param id="0" name="Seconds">0.2</param>
+                                </action>
+                                <action id="1" name="Close" sid="553470222049916" type="Browser" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="918256351262012" title="LoadHS">
+                    <sub-events>
+                        <event-block sid="866071237234136">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="307581194404841" type="System" />
+                                <condition id="3" name="Local key exists" sid="578378484596274" type="WebStorage">
+                                    <param id="0" name="Key">&quot;HS&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="897293196161639" type="Function">
+                                    <param id="0" name="Name">&quot;LoadHS&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-9" name="Set value" sid="976898760908184" type="System">
+                                    <param id="0" name="Variable">Highscore</param>
+                                    <param id="1" name="Value">WebStorage.LocalValue(&quot;HS&quot;)</param>
+                                </action>
+                                <action id="0" name="Set text" sid="317450649002240" type="HighScoreIndicatorMenu">
+                                    <param id="0" name="Text">&quot;:&quot;&amp;Highscore</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="385511122148908">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="541868381910219" type="System" />
+                                <condition id="3" inverted="1" name="Local key exists" sid="681748735676141" type="WebStorage">
+                                    <param id="0" name="Key">&quot;HS&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="820348493429270" type="HighScoreIndicatorMenu">
+                                    <param id="0" name="Text">&quot;:&quot;&amp;Highscore</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="820690034046912" title="Выбор скинов">
+            <sub-events>
+                <event-group description="" sid="591892085185014" title="SaveSkin">
+                    <sub-events>
+                        <event-block sid="691807765270050">
+                            <conditions>
+                                <condition id="0" name="On function" sid="641926231219928" type="Function">
+                                    <param id="0" name="Name">&quot;SkinSave&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set local value" sid="174783925664832" type="WebStorage">
+                                    <param id="0" name="Key">&quot;Skin&quot;</param>
+                                    <param id="1" name="Value">Skin</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="428880212957071" title="ScinSelect">
+                    <sub-events>
+                        <event-block sid="423865796780286">
+                            <conditions>
+                                <condition id="17" name="On tap object" sid="872022385783706" type="Touch">
+                                    <param id="0" name="Object">NextSkinButton</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="756301858224067" type="System">
+                                    <param id="0" name="Variable">Skin1Unlocked</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;False&quot;</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="846423632635169" type="SkinPreview">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="620099891186283" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="968977694576870" type="SkinPreview">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="670929609508448" type="SelectSkinButton">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="279823872108080" type="SkinPreview">
+                                    <param id="0" name="Animation">&quot;Default2&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="884057948030525" type="NextSkinButton">
+                                    <param id="0" name="Animation">&quot;Animation&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="440346923387579" type="System">
+                                    <param id="0" name="Seconds">0.2</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="955464113472303" type="NextSkinButton">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="965741787525424">
+                            <conditions>
+                                <condition id="17" name="On tap object" sid="732641407608394" type="Touch">
+                                    <param id="0" name="Object">NextSkinButton</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="322747068430609" type="System">
+                                    <param id="0" name="Variable">Skin1Unlocked</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;True&quot;</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="357428508514681" type="SkinPreview">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="128301350860883" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="248472623164726" type="SkinPreview">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="300337224629728" type="SelectSkinButton">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="852479912213680" type="SkinPreview">
+                                    <param id="0" name="Animation">&quot;Default2&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="816345263507779" type="NextSkinButton">
+                                    <param id="0" name="Animation">&quot;Animation&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="574701147580757" type="System">
+                                    <param id="0" name="Seconds">0.2</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="827002263689744" type="NextSkinButton">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="829929322256555">
+                            <conditions>
+                                <condition id="17" name="On tap object" sid="124443538426059" type="Touch">
+                                    <param id="0" name="Object">NextSkinButton</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="687176665203840" type="System">
+                                    <param id="0" name="Variable">Skin2Unlocked</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;False&quot;</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="657240348076118" type="SkinPreview">
+                                    <param id="0" name="Animation">&quot;Default2&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="992409750200989" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="356861344913551" type="SkinPreview">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="365513354294359" type="SelectSkinButton">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="245481041622405" type="SkinPreview">
+                                    <param id="0" name="Animation">&quot;Default3&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="144126325620138" type="NextSkinButton">
+                                    <param id="0" name="Animation">&quot;Animation&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="740199346519210" type="System">
+                                    <param id="0" name="Seconds">0.2</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="393723816751406" type="NextSkinButton">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="176634513688306">
+                            <conditions>
+                                <condition id="17" name="On tap object" sid="699907226324411" type="Touch">
+                                    <param id="0" name="Object">NextSkinButton</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="262394261487177" type="System">
+                                    <param id="0" name="Variable">Skin2Unlocked</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;True&quot;</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="334151008833105" type="SkinPreview">
+                                    <param id="0" name="Animation">&quot;Default2&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="618781664628917" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="972161846768513" type="SkinPreview">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="670116516391927" type="SelectSkinButton">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="749594264447141" type="SkinPreview">
+                                    <param id="0" name="Animation">&quot;Default3&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="445781683542194" type="NextSkinButton">
+                                    <param id="0" name="Animation">&quot;Animation&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="913876278610371" type="System">
+                                    <param id="0" name="Seconds">0.2</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="883534680251060" type="NextSkinButton">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="301186197196009">
+                            <conditions>
+                                <condition id="17" name="On tap object" sid="851774228972033" type="Touch">
+                                    <param id="0" name="Object">PrevSkinButton</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="609449615229953" type="SkinPreview">
+                                    <param id="0" name="Animation">&quot;Default2&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="902222907611539" type="SkinPreview">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="961597603839220" type="SelectSkinButton">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="268371655845705" type="SkinPreview">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="724766790622049" type="PrevSkinButton">
+                                    <param id="0" name="Animation">&quot;Animation&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="969670884124701" type="System">
+                                    <param id="0" name="Seconds">0.2</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="120557764364089" type="PrevSkinButton">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="396895791110137">
+                            <conditions>
+                                <condition id="17" name="On tap object" sid="648058254371721" type="Touch">
+                                    <param id="0" name="Object">PrevSkinButton</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="990825573030714" type="SkinPreview">
+                                    <param id="0" name="Animation">&quot;Default3&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="910045924806270" type="SkinPreview">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="333856964198547" type="SelectSkinButton">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="732514735461250" type="SkinPreview">
+                                    <param id="0" name="Animation">&quot;Default2&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="293714795895928" type="PrevSkinButton">
+                                    <param id="0" name="Animation">&quot;Animation&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="593163987283156" type="System">
+                                    <param id="0" name="Seconds">0.2</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="484424584895486" type="PrevSkinButton">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="458773803054746">
+                            <conditions>
+                                <condition id="17" name="On tap object" sid="375644628370378" type="Touch">
+                                    <param id="0" name="Object">SelectSkinButton</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="990346600011138" type="SkinPreview">
+                                    <param id="0" name="Animation">&quot;Default2&quot;</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="278515414428912" type="System">
+                                    <param id="0" name="Variable">Skin1Unlocked</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;True&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="400568406785127" type="System">
+                                    <param id="0" name="Variable">Skin</param>
+                                    <param id="1" name="Value">2</param>
+                                </action>
+                                <action id="0" name="Call function" sid="707981174330550" type="Function">
+                                    <param id="0" name="Name">&quot;SkinSave&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="4" name="Set animation" sid="498354291525354" type="SelectSkinButton">
+                                    <param id="0" name="Animation">&quot;AnimationUnblocked&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="334360221782187" type="System">
+                                    <param id="0" name="Seconds">0.2</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="607876211404764" type="SelectSkinButton">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="748268133480440" type="SelectSkinButton">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="310007369796422">
+                            <conditions>
+                                <condition id="17" name="On tap object" sid="226206348150557" type="Touch">
+                                    <param id="0" name="Object">SelectSkinButton</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="880001910571663" type="SkinPreview">
+                                    <param id="0" name="Animation">&quot;Default3&quot;</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="585998844317188" type="System">
+                                    <param id="0" name="Variable">Skin2Unlocked</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;True&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="824796028538654" type="System">
+                                    <param id="0" name="Variable">Skin</param>
+                                    <param id="1" name="Value">3</param>
+                                </action>
+                                <action id="0" name="Call function" sid="895667400122431" type="Function">
+                                    <param id="0" name="Name">&quot;SkinSave&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="4" name="Set animation" sid="129037420680580" type="SelectSkinButton">
+                                    <param id="0" name="Animation">&quot;AnimationUnblocked&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="911814084256538" type="System">
+                                    <param id="0" name="Seconds">0.2</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="398370609435118" type="SelectSkinButton">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="603076275652956" type="SelectSkinButton">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="693215393120184">
+                            <conditions>
+                                <condition id="17" name="On tap object" sid="146192675574197" type="Touch">
+                                    <param id="0" name="Object">SelectSkinButton</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="744152996136355" type="SkinPreview">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="229547427006554" type="System">
+                                    <param id="0" name="Variable">Skin</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="319399645073966" type="Function">
+                                    <param id="0" name="Name">&quot;SkinSave&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="4" name="Set animation" sid="853909559162729" type="SelectSkinButton">
+                                    <param id="0" name="Animation">&quot;AnimationUnblocked&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="724914288904125" type="System">
+                                    <param id="0" name="Seconds">0.2</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="641994514392031" type="SelectSkinButton">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="851154716798474" type="SelectSkinButton">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="929027825293162" title="UnlockSkins">
+                    <sub-events>
+                        <event-block sid="372690810255788">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="199703957190953" type="System">
+                                    <param id="0" name="Variable">Highscore</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">300</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="156985769160205" type="System">
+                                    <param id="0" name="Variable">Skin1Unlocked</param>
+                                    <param id="1" name="Value">&quot;True&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="604897930494684">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="197005236754537" type="System">
+                                    <param id="0" name="Variable">Highscore</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">500</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="753076847219726" type="System">
+                                    <param id="0" name="Variable">Skin2Unlocked</param>
+                                    <param id="1" name="Value">&quot;True&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="290077666845221" title="WebStorageLoad">
+            <sub-events>
+                <event-block sid="875375505200366">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="497480295020509" type="System" />
+                        <condition id="3" name="Local key exists" sid="800563446721227" type="WebStorage">
+                            <param id="0" name="Key">&quot;Skin&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="766347283326480" type="System">
+                            <param id="0" name="Variable">Skin</param>
+                            <param id="1" name="Value">WebStorage.LocalValue(&quot;Skin&quot;)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="193013584953793" type="System">
+                            <param id="0" name="Variable">MenuSkinSave</param>
+                            <param id="1" name="Value">&quot;True&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="286835350571981">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="725761018088488" type="System">
+                            <param id="0" name="Variable">Skin</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="307318024090787" type="System">
+                            <param id="0" name="Variable">MenuSkinSave</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;True&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="536040027335295" type="SkinPreview">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="168265175250828" type="System">
+                            <param id="0" name="Variable">MenuSkinSave</param>
+                            <param id="1" name="Value">&quot;False&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="867544798967274">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="802059590367027" type="System">
+                            <param id="0" name="Variable">Skin</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="316927921440329" type="System">
+                            <param id="0" name="Variable">MenuSkinSave</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;True&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="266942602896009" type="SkinPreview">
+                            <param id="0" name="Animation">&quot;Default2&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="992330418952341" type="System">
+                            <param id="0" name="Variable">MenuSkinSave</param>
+                            <param id="1" name="Value">&quot;False&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="668638799265835">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="320009920886712" type="System">
+                            <param id="0" name="Variable">Skin</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="666995718175941" type="System">
+                            <param id="0" name="Variable">MenuSkinSave</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;True&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="178439781112742" type="SkinPreview">
+                            <param id="0" name="Animation">&quot;Default3&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="455240326851736" type="System">
+                            <param id="0" name="Variable">MenuSkinSave</param>
+                            <param id="1" name="Value">&quot;False&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="453376564390672">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="247367479785093" type="System" />
+                        <condition id="3" name="Local key exists" sid="703362847094402" type="WebStorage">
+                            <param id="0" name="Key">&quot;Highscore&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="799934337742255" type="Function">
+                            <param id="0" name="Name">&quot;LoadHS&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="105546464573360" title="HighScoreLoad2">
+            <sub-events>
+                <event-block sid="141737852758953">
+                    <conditions>
+                        <condition id="0" name="On function" sid="236617265707073" type="Function">
+                            <param id="0" name="Name">&quot;LoadHS&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="974731172860941" type="System">
+                            <param id="0" name="Variable">Highscore</param>
+                            <param id="1" name="Value">WebStorage.LocalValue(&quot;Highscore&quot;)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="181008785444721" type="HighScoreIndicatorMenu">
+                            <param id="0" name="Text">&quot;:&quot;&amp;Highscore</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="198793816493195">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="897479531301084" type="System" />
+                        <condition id="3" name="Local key exists" sid="115759966033317" type="WebStorage">
+                            <param id="0" name="Key">&quot;Highscore&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="715985198536593" type="Function">
+                            <param id="0" name="Name">&quot;LoadHS&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
